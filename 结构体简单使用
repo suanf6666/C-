@@ -1,0 +1,18 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct stu{     //创建结构体,类似存固定结构表的仓库
+	string name;
+	int id;
+	int age;
+};
+
+int main(){
+	stu s1={"vincent",00001,18};  //结构体内的第一个表
+	struct stu *p=&s1;  //结构体指针
+	cout<<s1.age<<endl;  //输出数据,用"."输出需要的
+	cout<<p->name<<endl; //用"->"符号让指针指向数据
+	p->age=20; //指针更改
+	cout<<s1.age<<endl;
+	return 0;
+}
