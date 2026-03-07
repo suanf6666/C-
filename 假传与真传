@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+void change(int *p1,int *p2){  //取地址进行更改,为有效更改
+	int temp=*p1;
+	*p1=*p2;
+	*p2=temp;
+}
+
+int main(){
+	int a,b;
+	cin>>a>>b;
+	change(&a,&b);
+	cout<<a<<" "<<b;
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
+void change(int x1,int x2){  //虚参,无法传递给main函数
+	int temp=x2;
+	x2=x1;
+	x1=temp;
+	cout<<x1<<" "<<x2<<endl;
+}
+
+int main(){
+	int a,b;
+	cin>>a>>b;
+	change(a,b);
+	cout<<a<<" "<<b;
+	return 0;
+}
