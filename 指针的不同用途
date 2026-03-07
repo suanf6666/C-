@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int n;cin>>n;
+	int *p=&n; //初始化指针
+	cout<<n<<endl; //输出值
+	cout<<&n<<endl; //输出值的存储地址
+	cout<<p<<endl; //输出指针保存的值的地址
+	cout<<*p<<endl; //输出值
+	cout<<&p<<endl; //输出指针的存储地址
+	return 0;
+}
+
