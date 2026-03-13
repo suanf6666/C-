@@ -1,0 +1,21 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    //定义字符串
+    string str;    //最常用，定义空字符串
+    const char *str="hello"; 
+    string s1(str);    //使用字符串str初始化
+    string s2(str);    //用一个对象初始化另一个对象
+    string(数字,'字母');  //用n个字母初始化
+    
+    //赋值
+    str1="hello";   //直接用"="号赋值,支持单个字符，用''
+    str2=str1;       
+    str4.assign("hello");      //都用了assign函数进行赋值操作，这里是拷贝一个字符串
+    str5.assign("helloworld",5)     //这里只采用了字符串的前5个字母，即"hello"
+    str6.assign(str5);       //同str6=str5
+    str7.assign(10,'s')      //多个字符赋值
+
+    //字符串拼接
+    
