@@ -23,11 +23,15 @@ bool check(int a,int b,int c){    //函数判断9个数字是否全用,不存在
 		if(s.count(k)) return 0;
 		s.insert(k); 
 	}
+	return 1;
 }
 int main(){
 	for(int i=123;i<333;i++){   //减小范围减少运行时间,123是最小不重复,333是999/3
 		int y=2*i,z=3*i;
+		if(y>=1000||z>=1000)   //剪枝
+		break;
 		if(check(i,y,z))
 		cout<<i<<" "<<y<<" "<<z<<endl;
 	}
+	return 0;
 }
