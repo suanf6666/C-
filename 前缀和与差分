@@ -17,7 +17,7 @@ int main(){
 		d[i]=a[i]-a[i-1];    //差分数组的定义,类似把原数组a看成Sn,即a[i]=d[1]+...+d[i]
 	}
   int l=4,r=7;
-	int sum =s[l]-s[r-1]; cout<<sum<<endl;  //前缀和求(l,r)区间的和,切记右边是r-1
+	int sum =s[r]-s[l-1]; cout<<sum<<endl;  //前缀和求(l,r)区间的和,右减左,左边是l-1
 	         d[l]+=4;d[r+1]-=4;     //差分修改(l,r)区间每个+4,切记右边是r+1
 	for(int i=1;i<=n;i++){
 		f[i]=f[i-1]+d[i];  //求前缀和,修改后的数组为f[n]
