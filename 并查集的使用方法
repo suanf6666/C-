@@ -10,10 +10,8 @@ void init(){
 }
 
 int find(int x){
-    if(fa[x]!=x){
-        fa[x]=find(fa[x]);    //寻找函数,查找根节点+路径压缩
-    }
-    return fa[x];
+    if(fa[x]==x) return x;
+    return fa[x]=find(fa[x]);   //寻找函数,查找根节点+路径压缩
 }
 
 void unite(int x,int y){   //合并集合
