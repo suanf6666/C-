@@ -1,0 +1,9 @@
+//原理:sort函数里可以写一个自定义排序函数:bool cmp(类型 x,类型 y),通过不断拿出x和y进cmp里判断来排序,然后return你想让a排在b前面的条件.
+#include<bits/stdc++.h>
+using namespace std;
+bool cmp(int x,int y){
+   return x>y;
+}
+int main(){
+	
+}
