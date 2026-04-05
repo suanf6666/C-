@@ -1,9 +1,14 @@
 //原理:sort函数里可以写一个自定义排序函数:bool cmp(类型 x,类型 y),通过不断拿出x和y进cmp里判断来排序,然后return你想让a排在b前面的条件.
-#include<bits/stdc++.h>
-using namespace std;
 bool cmp(int x,int y){
-   return x>y;
+	return x>y;     //不能写>=,<=,会死循环,这个是从大到小排
 }
 int main(){
-	
+	int a[]={6,3,2,1,32,7,4,9,12,24,20,10,45};
+    vector<int>b....;
+
+	int len=sizeof(a)/sizeof(a[0]);   //正常数组排序,len取数组长度
+	sort(a,a+len,cmp);
+
+    sort(b.begin(),b.end(),cmp);      //vector数组排序
+	return 0;
 }
