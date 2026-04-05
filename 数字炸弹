@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n=77,a,b,c=0;cin>>a>>b;
+    while(c!=n){
+    	cin>>c;
+    	 if(c<=a||c>=b)
+		  cout<<"remake,"<<a<<"-"<<b;
+    	 else if(c<n){
+    	  a=c;
+    	  cout<<"wrong,"<<a<<"-"<<b;
+    	}else if(c>n){
+    	  b=c;
+    	  cout<<"wrong,"<<a<<"-"<<b;}
+    	 else;
+      }
+	cout<<"你猜中了";
+	return 0; 
+}
