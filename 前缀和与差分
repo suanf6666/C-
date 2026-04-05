@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-void input(vector<int>s,int n){
+void input(vector<int>s,int n){  //对于二维数组传入,直接使用指针*s,同时传入行数与列数,如对于a[i][j]则(int *s,int a,int b).
 	for(int i=1;i<=n;i++){
-		cout<<s[i]<<" ";   //输出函数
+		cout<<s[i]<<" ";   //输出函数,对于二维的输出,0-based用*(s+i*列数+j);1-based用*(s+i*(列数+1)+j)
 	}
 } 
 int main(){
