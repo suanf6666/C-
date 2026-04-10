@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    //定义
+     vector<int> s;   //直接定义空数组，容量随数组动态扩展
+     vector<int>s2(s.begin(),s.end());  //定义数组同时复制了另一个数组的数据（可以调整范围控制区间）
+     vector<int>s3(10,100);  //读作10个100，指定义数组时加入10个100的数字
+     vector<int>s4(s3);    //拷贝另一个数组
+
+    //赋值
+  for(int i=0;i<10;i++){
+    s.push_back(i);     //循环尾部插入赋值
+   }
+    vector<int>v2;   v2=v1;   //拷贝
+    vector<int>v3;   v3.assign(v1.begin(),v1.end());       //通过“=”或assign赋值
+    vector<int>v4;   v4.assign(10,100);
+
+    //常用函数
+    empty();    //判断容器是否为空，返回bool值，用于if等语句判断
+    capacity();   //容器的容量，表示这个数组能装多少元素，会动态扩展      
+    size();     //容器中元素个数
+    resize(数字);  //重新指定容器长度，若容器变长则加新位置，变短则超出长度的元素被删除
+    resize(数字，x);  //与上文一致，但容器变长会以x填充新位置
+    push_back(x);  pop_back;   //尾部插入x，删除最后一个元素                                      使用方法均为  数组名.函数()
+    insert(位置x，y);  insert(位置x,y,z);  //向位置x中插入y,或者是插入y个z                             
+    erase(位置x);   //删除位置x的元素
+    erase(位置x，位置y);   //删除位置x到位置y的元素
+    clear();   //删除容器中所有元素
+    front();  back();   //返回第一个/最后一个元素
+    s1.swap(s2);     //s1与s2数组交换
+    reserve(int len)   //预留len个元素长度，减少扩展次数
+
+    return 0;
+}
