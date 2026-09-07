@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+typedef double d; //将double简化为d方便写
+using namespace std;
+class computer{    //类的模版,包含数据和函数,类似于房屋图纸
+	public:
+		d a,b;int c;
+		computer(d x,d y,int z){
+			a=x,b=y,c=z;
+		}
+		d ju(d a,d b,int c){
+			if(c==1){
+				return a+b;}
+			else if(c==2){
+				return a-b;}
+			else if(c==3){
+				return a*b;}
+			else if(c==4&&b!=0){
+				return a/b;}
+			else
+			    cout<<"输入错误";
+			    return 0; 
+		}
+};
+int main(){
+	d r,s,t=1;
+	while(t!=0){   //t=0为结束计算,其余则为选择符号
+	cin>>r>>s>>t;
+	computer num(r,s,t);  //创建一个名字为num的computer类型的类,类似于用图纸建一栋叫num的房屋
+	cout<<fixed<<setprecision(3)<<num.ju(r,s,t)<<endl;  //调用类里的函数运算后输出
+}
+	return 0;
+}
