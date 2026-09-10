@@ -1,0 +1,14 @@
+class father{
+public:   //公开,任意访问
+函数1;
+protected:  //内部,只允许主类和子类访问
+函数2;
+private:  //私有,只允许主类访问
+函数3;
+};
+
+//类的继承(会继承public和protected部分函数和变量)
+//对于继承特点: public继承不影响子类函数访问权限; protected会将public部分变为protected; private会将所有函数均变为private.且任意继承特性均无法继承private部分
+class son : public father(继承函数1,2. 1为public;2为protected)
+class son : protected father(继承函数1,2. 1,2均为protected)
+class son : private father(继承函数1,2. 1,2均为private)
