@@ -1,0 +1,25 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void shuru(vector<int> &s){  
+	int n=1;           //定义一个n,先让他为1,在用一个当循环输入,图中是以输入0为结束条件
+	while(n!=0){
+		cin>>n;
+		s.push_back(n);
+	}
+}
+int main(){
+	vector<int> s1,s2;
+    shuru(s1); shuru(s2);
+    vector<int> s3;
+    for(int i=0;i<s1.size();i++){     //简单的两个数组里找相同数
+    	for(int j=0;j<s2.size();j++){
+    		if(s1[i]==s2[j])
+			s3.push_back(s1[i]);
+		}
+	}
+	for(int i=0;i<s3.size()-1;i++){
+		cout<<s3[i]<<" ";
+	}
+	return 0;
+}

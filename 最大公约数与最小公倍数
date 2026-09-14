@@ -1,0 +1,26 @@
+//原理:gcd(大数,小数)=gcd(小数,大数/小数的余数)
+#include<bits/stdc++.h>
+using namespace std;
+
+int gcd(int a,int b){
+	  if(b)   //等价于b!=0
+		return b?gcd(b,a%b):a;	  //等价于if(b) return gcd(b,a%b); else return a;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+
+/*
+  int a,b,temp;
+  cin>>a>>b;
+  while(b){
+   temp=a%b;     //另一种一般写法
+   a=b;
+   b=temp;
+  }
+cout<<a;
+*/
+
+	cout<<gcd(a,b);
+	return 0;
+}

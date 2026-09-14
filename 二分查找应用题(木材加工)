@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=100010;
+int a[N];
+bool qiege(int n,long long t,int m){
+	int sum=0;
+	if(t==0)   return 1;
+	for(int i=1;i<=n;i++)
+	  sum+=a[i]/t;
+	if(sum>=m) return 1;
+	else       return 0;
+}
+int main(){
+   ios::sync_with_stdio(false);   //加快输入输出
+   cin.tie(0);
+   
+   int n,k,maxl=0;
+   cin>>n>>k;
+   for(int i=1;i<=n;i++){
+       cin>>a[i];
+       maxl=max(maxl,a[i]);     //确定右边界
+   }
+   int l=0,r=maxl,ans=-1;
+   
+   while(l<=r){
+   	long long mid=l+(r-l)/2;           //二分查找的核心公式,左边一般设为0,右边根据情况找最大值,利用while循环找到最值,mid这么写防超上限,即mid=(l+r)/2
+   	if(qiege(n,mid,k)){        //这里可以写判断函数,在其他地方判断,简洁明了方便写公式
+   	  ans=mid;
+   	  l=mid+1;}              //记住边界取值,防止陷入死循环
+   	else
+   	  r=mid-1;
+   }
+   
+   cout<<ans;
+   return 0;
+}
