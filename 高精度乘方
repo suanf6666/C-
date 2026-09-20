@@ -4,19 +4,21 @@ int main(){
     int a=642587;
     int n=11612;
     vector<int>num;
-    num.push_back(1);
-    while(n--){
+    num.push_back(1);    //1乘任何数都是任何数
+
+    while(n--){     //意味着n个a相乘,可以使用快速幂加快计算速度
         int carry=0;
-        for(int i=0;i<num.size();i++) {
-            int x=num[i]*a+carry;
+        for(int i=0;i<num.size();i++) {    //对于结果的每位数num[i],等于其与乘数相乘加余数carry,超出部分/10则为进位
+            int x=num[i]*a+carry;    //循环的意思为:num里每一位数都与a相乘,得到结果,第一次循环的carry值则加在第二次的x里,形成进位相加
             num[i]= x%10;
             carry= x/10;
         }
         while(carry){
-            num.push_back(carry%10);
+            num.push_back(carry%10);   //意思是:当循环结束时还有剩余的carry,则直接加在num后面,也就是最大的位数.
             carry/=10;
         }
     }
+
     for(int i=num.size()-1;i>=0;i--)
         cout<<num[i];
     return 0;
