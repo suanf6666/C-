@@ -8,6 +8,12 @@ void shuru(vector<int> &s){
 		s.push_back(n);
 	}
 }
+
+void shuru2(vector<int> &s){
+    int n;
+    while(cin>>n){     //更直接,OJ数据里有结束符,用这个方法更简单
+    s.push_back(n);} 
+}
 int main(){
 	vector<int> s1,s2;
     shuru(s1); shuru(s2);
