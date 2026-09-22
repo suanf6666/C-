@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct stu{
+	string name;
+	int id;
+	int age;
+};
+
+void change(struct stu x[]){
+	for(int i=0;i<2;i++){
+		for(int j=0;j<2-i;j++){
+			if(x[j].age<x[j+1].age){
+			stu temp=x[j+1];  //这里不用刻意写结构体名,如stu x[i],除非初次定义
+			x[j+1]=x[j];
+			x[j]=temp;
+		   }
+		}
+	}
+}
+
+int main(){
+	stu t[3]={
+	{"zhang3",00001,18},
+	{"li4",00002,15},
+	{"wang5",00003,21}
+  };
+  change(t);  //传入结构体直接写结构体数组的名字,不用加[]与结构体名
+for(int i=0;i<3;i++){
+  	cout<<t[i].name<<" "<<t[i].id<<" "<<t[i].age<<endl;  //常规输出
+  }
+  struct stu *p=t;  //这里定义指针不要写=&t,这是取整个数组的首地址,虽然一样但是++会导致跳过整个数组
+for(int i=0;i<3;i++){
+  	cout<<p->name<<" "<<p->id<<" "<<p->age<<endl;  //指针输出
+  	p++;  //这里会自动计算好跳过的字节,与t[i+1]一样
+  }
+  return 0;
+}

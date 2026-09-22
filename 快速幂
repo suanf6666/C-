@@ -1,0 +1,31 @@
+//原理:将大数拆成多个小数相乘,时间复杂度从O(n)降到O(log n)
+#include <bits/stdc++.h>
+using namespace std;
+long long cheng(long long a,int b){
+	long long ans=1;
+	while(b){
+		if(b%2) ans=ans*a;   //思路: ans作为结果,奇数时直接乘,偶数时不变,但都进行a平方和b/2,因为3/2=1,所以奇数时候要多乘个a弥补次数少1的结果
+		a=a*a;
+		b=b/2;
+	}
+	return ans;
+}
+
+int main(){
+	int a,n;
+	cin>>a>>n;
+
+	/*
+    int mod; cin>>mod;
+	int ans=1;
+	while(n){
+		if(n%2) ans=ans*a%mod;   //对于快速幂取模,直接在相应操作后进行取模,得到取模结果
+		a=a*a%mod;
+		n=n/2;
+	}
+	cout<<ans;
+	*/
+
+	cout<<cheng(a,n);
+	return 0;
+}

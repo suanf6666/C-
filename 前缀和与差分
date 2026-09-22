@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+void input(vector<int>s,int n){  //对于二维数组传入,直接使用指针*s,同时传入行数与列数,如对于a[i][j]则(int *s,int a,int b).
+	for(int i=1;i<=n;i++){
+		cout<<s[i]<<" ";   //输出函数,对于二维的输出,0-based用*(s+i*列数+j);1-based用*(s+i*(列数+1)+j)
+	}
+} 
+int main(){
+	int n;cin>>n;
+	vector<int>a(n+1),s(n+1),d(n+2),f(n+1);  //s[n+1]为前缀和数组,d[n+2]为差分数组(加一位防止越界),f[n+1]为修改后数组
+	for(int i=1;i<=n;i++){
+		a[i]=i;    //原数组
+	}
+	d[1]=a[1];  //差分数组的第一项与a[1]相等
+	for(int i=2;i<=n;i++){
+		s[i]=s[i-1]+a[i];    //前缀和数组的定义,类似于数列的和Sn
+		d[i]=a[i]-a[i-1];    //差分数组的定义,类似把原数组a看成Sn,即a[i]=d[1]+...+d[i]
+	}
+  int l=4,r=7;
+	int sum =s[r]-s[l-1]; cout<<sum<<endl;  //前缀和求(l,r)区间的和,右减左,左边是l-1
+	         d[l]+=4;d[r+1]-=4;     //差分修改(l,r)区间每个+4,切记右边是r+1
+	for(int i=1;i<=n;i++){
+		f[i]=f[i-1]+d[i];  //求前缀和,修改后的数组为f[n]
+	}
+	return 0;
+}
