@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool check(int a,int b,int c){    //函数判断9个数字是否全用,不存在重复
+	set<int>s;   //利用set的不重复规则
+	while(a){    //这里a可以代指a！=0
+		int k=a%10;   //提取个位数
+		a/=10;       //去掉个位数，循环来看就是提取每一位数
+		if(k==0) return 0;
+		if(s.count(k)) return 0;  //这里判断是否有0和数字重复，1表示true，0是false
+		s.insert(k);   //插入数字
+	}
+	while(b){
+		int k=b%10;
+		b/=10;
+		if(k==0) return 0;
+		if(s.count(k)) return 0;
+		s.insert(k); 
+	}
+	while(c){
+		int k=c%10;
+		c/=10;
+		if(k==0) return 0;
+		if(s.count(k)) return 0;
+		s.insert(k); 
+	}
+	return 1;
+}
+int main(){
+	for(int i=123;i<333;i++){   //减小范围减少运行时间,123是最小不重复,333是999/3
+		int y=2*i,z=3*i;
+		if(y>=1000||z>=1000)   //剪枝
+		break;
+		if(check(i,y,z))
+		cout<<i<<" "<<y<<" "<<z<<endl;
+	}
+	return 0;
+}

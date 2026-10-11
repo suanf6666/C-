@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> recycle(string& s){        //定义接收函数,接收string字符串转换为vector数组
+	vector<int>r;
+	for(int i=s.size()-1;i>=0;i--){
+		r.push_back(s[i]-'0');
+	}
+	return r;
+}
+
+int main(){
+   string a,b;
+   cin>>a>>b;
+   vector<int>s1=recycle(a);
+   vector<int>s2=recycle(b);
+   vector<int>s3(s1.size()+s2.size(),0);  //定义接收容器同时划定空间
+   for(int i=0;i<s1.size();i++){
+   	  for(int j=0;j<s2.size();j++){
+   	  	 s3[i+j]+=s1[i]*s2[j];       //两个数字相乘,结果每一位都在两相乘数字各自位数相加的位数上,是"+="不要写成"="
+		 }
+	}
+   for(int i=0;i<s3.size()-1;i++){   //处理进位所用,将大于10的数加给大一位
+   	s3[i+1]+=s3[i]/10;
+   	s3[i]%=10;
+   }
+   while (s3.size()>1&&s3.back()==0)  //删除0
+        s3.pop_back();
+   for(int i=s3.size()-1;i>=0;i--)
+        cout<<s3[i];
+   return 0;
+}

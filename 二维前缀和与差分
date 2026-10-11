@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void input(vector<vector<int> >s,int a,int b){
+	cout<<endl;
+	for(int i=1;i<=a;i++){
+		for(int j=1;j<=b;j++){
+		   cout<<s[i][j]<<" ";
+	   }
+	   cout<<endl;
+	}
+} 
+
+int main(){
+    int n,m;cin>>n>>m;
+	vector<vector<int> >a(n+1,vector<int>(m+1,0)),
+	                    s(n+1,vector<int>(m+1,0)),  //用二维[n][m]vector,都多留一位空间
+                        d(n+1,vector<int>(m+2,0)),
+	                    f(n+1,vector<int>(m+1,0));
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
+			cin>>a[i][j];
+		}
+	}
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
+			s[i][j]=a[i][j]+s[i-1][j]+s[i][j-1]-s[i-1][j-1];   //二维前缀和数组的公式
+            d[i][j]=a[i][j]-a[i-1][j]-a[i][j-1]+a[i-1][j-1];   //二维差分数组公式
+		}
+	}
+	int x1=2,y1=3,x2=5,y2=7,sum=0;    //求2行3列到5行7列这个矩阵里数字的和
+	sum=s[x2][y2]-s[x1-1][y2]-s[x2][y1-1]+s[x1-1][y1-1];   //求和公式,用前缀和数组数据,O(1)复杂度,适合大量求和用
+    d[x1][y1]+=4;d[x2+1][y1]-=4;d[x1][y2+1]-=4;d[x2+1][y2+1]+=4;  //差分公式,先对四个点进行修改,再对这个差分数组求前缀和得到f[n][m]
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
+			f[i][j]=d[i][j]+f[i-1][j]+f[i][j-1]-f[i-1][j-1];   //即修改后的a[n][m]
+		}
+	}
+	input(a,n,m);input(s,n,m);input(d,n,m);input(f,n,m);
+	cout<<endl<<sum;
+	return 0;
+}
