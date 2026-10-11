@@ -1,7 +1,5 @@
-#include<iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
-
 struct stu{
 	string name;
 	int id;
@@ -20,15 +18,16 @@ void change(struct stu x[]){
 	}
 }
 
+bool cmp(const stu &a,const stu &b){
+	return a.age>b.age;           //sort的排序函数,传入结构体但可以根据其中的元素决定顺序
+}
+
 int main(){
-	stu t[3]={
-	{"zhang3",00001,18},
-	{"li4",00002,15},
-	{"wang5",00003,21}
-  };
-  change(t);  //传入结构体直接写结构体数组的名字,不用加[]与结构体名
-for(int i=0;i<3;i++){
-  	cout<<t[i].name<<" "<<t[i].id<<" "<<t[i].age<<endl;  //常规输出
+   stu t[3]={{"zhang3",00001,18},{"li4",00002,15},{"wang5",00003,21}};
+     change(t);  //传入结构体直接写结构体数组的名字,不用加[]与结构体名
+     sort(t,t+3,cmp);   //从头到尾排序
+   for(int i=0;i<3;i++){
+  	  cout<<t[i].name<<" "<<t[i].id<<" "<<t[i].age<<endl;  //常规输出
   }
   struct stu *p=t;  //这里定义指针不要写=&t,这是取整个数组的首地址,虽然一样但是++会导致跳过整个数组
 for(int i=0;i<3;i++){
